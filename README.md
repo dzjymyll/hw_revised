@@ -22,7 +22,10 @@ https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app/tree/main
 1. 将上述仓库克隆或下载到本地
 2. 将其重命名或存放为 `test_repo`
 3. 使用本项目对 `test_repo` 进行分析和数据生成
-
+```bash
+# 克隆示例代码仓（Azure FastAPI + PostgreSQL 示例项目）
+git clone https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app.git test_repo
+```
 ---
 
 ## 环境准备
