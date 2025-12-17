@@ -953,7 +953,7 @@ def main():
     print(f"配置信息:")
     print(f"{'='*50}")
     print(f"规则文件: {args.rules}")
-    print(f"输出目录: {args.output}")
+    # print(f"输出目录: {args.output}")
     print(f"生成数量: {args.num}")
     print(f"生成语言: {args.lang if args.lang else '中英文'}")
     print(f"层级比例: Level1={args.level1*100}%, Level2={args.level2*100}%, Level3={args.level3*100}%")
