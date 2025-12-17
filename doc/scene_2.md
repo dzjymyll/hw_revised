@@ -164,7 +164,13 @@ python ./code/design_plan.py \
   --rules data/business_rule.json \
   --output data/design_solution/enhanced_designs.json
 ```
-
+输出文件位置：
+```text
+data/design_solution/based_designs.json (For No LLM)
+data/design_solution/enhanced_designs.json (For LLM No Language Requirement)
+data/design_solution/enhanced_designs_en.json (For LLM with English)
+data/design_solution/enhanced_designs_zh.json (For LLM with Chinese)
+```
 ---
 
 ## 7. Future Work：基于设计数据的模型微调方向

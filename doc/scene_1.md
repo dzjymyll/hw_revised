@@ -185,7 +185,7 @@ QA Pairs (JSON)
 ### 基础用法
 
 ```bash
-# 生成问答对（默认中英文）
+# 生成问答对（默认中英文）（需LLM支持）
 python ./code/qa_generator.py --rules ./data/business_rule.json --num 40
 
 # 只生成中文问答对
@@ -194,7 +194,13 @@ python ./code/qa_generator.py --rules ./data/business_rule.json --lang zh --num 
 # 只生成英文问答对（需LLM支持）
 python ./code/qa_generator.py --rules ./data/business_rule.json --lang en --num 40
 ```
-
+输出文件位置：
+```text
+data/qa_pairs/based_qa_pairs.json (For No LLM)
+data/qa_pairs/enhanced_qa_pairs_two_language.json (For LLM No Language Requirement)
+data/qa_pairs/enhanced_qa_pairs_en.json (For LLM with English)
+data/qa_pairs/enhanced_qa_pairs_zh.json (For LLM with Chinese)
+```
 生成结果为结构化 JSON 文件，可直接用于模型微调或进一步处理。
 
 ---

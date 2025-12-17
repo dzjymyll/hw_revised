@@ -139,6 +139,13 @@ python code/qa_generator.py   --num 40   --rules data/business_rule.json   --out
 -`--num` 控制生成数据数量
 - `--lang` 支持 `zh` / `en`，不指定语言时可生成中英文混合数据集（需大模型支持），没有大模型时只生成中文结果，储存在 data/qa_pairs/base_qa_pairs.json
 
+输出文件位置：
+```text
+data/qa_pairs/based_qa_pairs.json (For No LLM)
+data/qa_pairs/enhanced_qa_pairs_two_language.json (For LLM No Language Requirement)
+data/qa_pairs/enhanced_qa_pairs_en.json (For LLM with English)
+data/qa_pairs/enhanced_qa_pairs_zh.json (For LLM with Chinese)
+```
 ---
 
 ## Step 3：场景二 —— 需求与架构设计数据集生成
@@ -168,6 +175,13 @@ python code/design_plan.py --num 10 --rules 'data/business_rule.json' --output '
 -`--num` 控制生成数据数量
 - `--lang` 支持 `zh` / `en`，不指定语言时可生成中英文混合数据集（需大模型支持），没有大模型时只生成中文结果，储存在 data/qa_pairs/base_qa_pairs.json
 
+输出文件位置：
+```text
+data/design_solution/based_designs.json (For No LLM)
+data/design_solution/enhanced_designs.json (For LLM No Language Requirement)
+data/design_solution/enhanced_designs_en.json (For LLM with English)
+data/design_solution/enhanced_designs_zh.json (For LLM with Chinese)
+```
 ---
 
 ## 项目定位
