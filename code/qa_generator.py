@@ -607,6 +607,7 @@ Answer content"""
                     else:
                         # 如果API调用失败，使用简单生成
                         self.logger.warning("API调用失败，使用简单生成")
+                        self.has_llm = False
                         break
                 else:
                     # 无LLM时使用简单生成
@@ -768,7 +769,7 @@ Answer content"""
         try:
 
             # 根据语言参数确定输出文件名
-            if self.api_key:
+            if self.has_llm:
                 if self.language == 'zh':
                     filename = f"enhanced_qa_pairs_zh.json"
                 elif self.language == 'en':

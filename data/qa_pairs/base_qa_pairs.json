@@ -8,7 +8,7 @@
     "level_2": 0.4,
     "level_3": 0.1
   },
-  "generation_time": "2025-12-17T13:06:46.316638",
+  "generation_time": "2025-12-17T17:51:34.678178",
   "statistics": {
     "levels": {
       "level_1": 20,
@@ -16,7 +16,8 @@
       "level_3": 4
     },
     "languages": {
-      "zh": 40
+      "zh": 20,
+      "en": 20
     }
   },
   "qa_pairs": [
@@ -29,6 +30,96 @@
         {
           "file_path": "all",
           "description": "file_structure: project_structure",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "create_restaurant.html是什么？",
+      "answer": "create_restaurant.html是项目中的一个template组件。",
+      "level": "level_1",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\templates\\create_restaurant.html",
+          "description": "template: create_restaurant.html",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "src\\my_uvicorn_worker.py文件中导入了哪些模块？",
+      "answer": "导入了1个模块，包括：from uvicorn_worker import UvicornWorker",
+      "level": "level_1",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\my_uvicorn_worker.py",
+          "description": "import: 1 imports in my_uvicorn_worker.py",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "index.html是什么？",
+      "answer": "index.html是项目中的一个template组件。",
+      "level": "level_1",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\templates\\index.html",
+          "description": "template: index.html",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "config_requirements.txt配置文件的作用是什么？",
+      "answer": "config_requirements.txt是项目的配置文件，包含基本设置参数。",
+      "level": "level_1",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "requirements.txt",
+          "description": "config: config_requirements.txt",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "config___init__.py配置文件的作用是什么？",
+      "answer": "config___init__.py是项目的配置文件，包含基本设置参数。",
+      "level": "level_1",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\__init__.py",
+          "description": "config: config___init__.py",
           "code_snippet": ""
         }
       ],
@@ -75,24 +166,6 @@
       }
     },
     {
-      "question": "star_rating.html是什么？",
-      "answer": "star_rating.html是项目中的一个template组件。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\templates\\star_rating.html",
-          "description": "template: star_rating.html",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
       "question": "src\\fastapi_app\\app.py文件中导入了哪些模块？",
       "answer": "导入了20个模块，包括：from fastapi import FastAPI, from fastapi import Depends, from models import engine, from sqlmodel import select, import logging",
       "level": "level_1",
@@ -101,60 +174,6 @@
         {
           "file_path": "src\\fastapi_app\\app.py",
           "description": "import: 20 imports in app.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "src\\gunicorn.conf.py文件中导入了哪些模块？",
-      "answer": "导入了1个模块，包括：import multiprocessing",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\gunicorn.conf.py",
-          "description": "import: 1 imports in gunicorn.conf.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "create_restaurant.html是什么？",
-      "answer": "create_restaurant.html是项目中的一个template组件。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\templates\\create_restaurant.html",
-          "description": "template: create_restaurant.html",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "details.html是什么？",
-      "answer": "details.html是项目中的一个template组件。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\templates\\details.html",
-          "description": "template: details.html",
           "code_snippet": ""
         }
       ],
@@ -183,10 +202,28 @@
       }
     },
     {
-      "question": "create_restaurant.html是什么？",
-      "answer": "create_restaurant.html是项目中的一个template组件。",
+      "question": "What is project_structure?",
+      "answer": "project_structure is a file_structure component in the project.",
       "level": "level_1",
-      "language": "zh",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "all",
+          "description": "file_structure: project_structure",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is create_restaurant.html?",
+      "answer": "create_restaurant.html is a template component in the project.",
+      "level": "level_1",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\templates\\create_restaurant.html",
@@ -201,154 +238,10 @@
       }
     },
     {
-      "question": "src\\fastapi_app\\seed_data.py文件中导入了哪些模块？",
-      "answer": "导入了5个模块，包括：from sqlmodel import SQLModel, from fastapi_app.models import create_db_and_tables, from fastapi_app.models import engine, from fastapi_app.models import Review, from fastapi_app.models import Restaurant",
+      "question": "What modules are imported in src\\my_uvicorn_worker.py?",
+      "answer": "Imported 1 modules, including: from uvicorn_worker import UvicornWorker",
       "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\seed_data.py",
-          "description": "import: 5 imports in seed_data.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "config___init__.py配置文件的作用是什么？",
-      "answer": "config___init__.py是项目的配置文件，包含基本设置参数。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\__init__.py",
-          "description": "config: config___init__.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "config___init__.py配置文件的作用是什么？",
-      "answer": "config___init__.py是项目的配置文件，包含基本设置参数。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\__init__.py",
-          "description": "config: config___init__.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "config_requirements.txt配置文件的作用是什么？",
-      "answer": "config_requirements.txt是项目的配置文件，包含基本设置参数。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "requirements.txt",
-          "description": "config: config_requirements.txt",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "config___init__.py配置文件的作用是什么？",
-      "answer": "config___init__.py是项目的配置文件，包含基本设置参数。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\__init__.py",
-          "description": "config: config___init__.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "details.html是什么？",
-      "answer": "details.html是项目中的一个template组件。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\templates\\details.html",
-          "description": "template: details.html",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "index.html是什么？",
-      "answer": "index.html是项目中的一个template组件。",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\templates\\index.html",
-          "description": "template: index.html",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "src\\fastapi_app\\app.py文件中导入了哪些模块？",
-      "answer": "导入了20个模块，包括：from fastapi import FastAPI, from fastapi import Depends, from models import engine, from sqlmodel import select, import logging",
-      "level": "level_1",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\app.py",
-          "description": "import: 20 imports in app.py",
-          "code_snippet": ""
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "src\\my_uvicorn_worker.py文件中导入了哪些模块？",
-      "answer": "导入了1个模块，包括：from uvicorn_worker import UvicornWorker",
-      "level": "level_1",
-      "language": "zh",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\my_uvicorn_worker.py",
@@ -363,14 +256,122 @@
       }
     },
     {
-      "question": "src\\gunicorn.conf.py文件中导入了哪些模块？",
-      "answer": "导入了1个模块，包括：import multiprocessing",
+      "question": "What is index.html?",
+      "answer": "index.html is a template component in the project.",
       "level": "level_1",
-      "language": "zh",
+      "language": "en",
       "code_references": [
         {
-          "file_path": "src\\gunicorn.conf.py",
-          "description": "import: 1 imports in gunicorn.conf.py",
+          "file_path": "src\\templates\\index.html",
+          "description": "template: index.html",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is the purpose of the config_requirements.txt configuration file?",
+      "answer": "config_requirements.txt is a configuration file for the project, containing basic settings.",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "requirements.txt",
+          "description": "config: config_requirements.txt",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is the purpose of the config___init__.py configuration file?",
+      "answer": "config___init__.py is a configuration file for the project, containing basic settings.",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\__init__.py",
+          "description": "config: config___init__.py",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is the purpose of the config_requirements.txt configuration file?",
+      "answer": "config_requirements.txt is a configuration file for the project, containing basic settings.",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\requirements.txt",
+          "description": "config: config_requirements.txt",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What modules are imported in src\\fastapi_app\\models.py?",
+      "answer": "Imported 9 modules, including: from sqlmodel import SQLModel, from sqlmodel import Field, import logging, from urllib.parse import quote_plus, from dotenv import load_dotenv",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\models.py",
+          "description": "import: 9 imports in models.py",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What modules are imported in src\\fastapi_app\\app.py?",
+      "answer": "Imported 20 modules, including: from fastapi import FastAPI, from fastapi import Depends, from models import engine, from sqlmodel import select, import logging",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "import: 20 imports in app.py",
+          "code_snippet": ""
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is the purpose of the config_models.py configuration file?",
+      "answer": "config_models.py is a configuration file for the project, containing basic settings.",
+      "level": "level_1",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\models.py",
+          "description": "config: config_models.py",
           "code_snippet": ""
         }
       ],
@@ -390,98 +391,6 @@
           "file_path": "src\\fastapi_app\\models.py",
           "description": "function: create_db_and_tables",
           "code_snippet": "def create_db_and_tables():\n    return SQLModel.metadata.create_all(engine)..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "add_restaurant函数是如何工作的？",
-      "answer": "add_restaurant函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\app.py",
-          "description": "function: add_restaurant",
-          "code_snippet": "@app.post(\"/add\", response_class=RedirectResponse)\nasync def add_restaurant(\n    request: Request, restaurant_name: str = Form(...), street_address: str = Form(...), description: str = Form(...),\n    session: Session = Depends(get_db_session)\n):\n    logger.info(\"name: %s address: %s description: %s\"..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "details函数是如何工作的？",
-      "answer": "details函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\app.py",
-          "description": "function: details",
-          "code_snippet": "@app.get(\"/details/{id}\", response_class=HTMLResponse)\nasync def details(request: Request, id: int, session: Session = Depends(get_db_session)):\n    restaurant = session.exec(select(Restaurant).where(Restaurant.id == id)).first()\n    reviews = session.exec(select(Review).where(Review.restaurant == i..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "Restaurant数据模型的主要功能是什么？",
-      "answer": "Restaurant模型定义了数据结构，用于数据存储和验证。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\models.py",
-          "description": "model: Restaurant",
-          "code_snippet": "class Restaurant(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    name: str = Field(max_length=50)\n    street_address: str = Field(max_length=50)\n    description: str = Field(max_length=250)\n\n    def __str__(self):\n        return f\"{self.name}\"..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [
-          "数据验证"
-        ],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "add_review函数是如何工作的？",
-      "answer": "add_review函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\app.py",
-          "description": "function: add_review",
-          "code_snippet": "@app.post(\"/review/{id}\", response_class=RedirectResponse)\nasync def add_review(\n    request: Request,\n    id: int,\n    user_name: str = Form(...),\n    rating: str = Form(...),\n    review_text: str = Form(...),\n    session: Session = Depends(get_db_session),\n):\n    review = Review()\n    review.resta..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "MyUvicornWorker的主要功能是什么？",
-      "answer": "MyUvicornWorker负责处理class相关的业务逻辑。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\my_uvicorn_worker.py",
-          "description": "class: MyUvicornWorker",
-          "code_snippet": "class MyUvicornWorker(UvicornWorker):\n    CONFIG_KWARGS = {\n        \"loop\": \"asyncio\",\n        \"http\": \"auto\",\n        \"lifespan\": \"off\",\n        \"log_config\": logconfig_dict,\n    }..."
         }
       ],
       "data_processing_info": {
@@ -527,42 +436,6 @@
       }
     },
     {
-      "question": "add_restaurant函数是如何工作的？",
-      "answer": "add_restaurant函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\app.py",
-          "description": "function: add_restaurant",
-          "code_snippet": "@app.post(\"/add\", response_class=RedirectResponse)\nasync def add_restaurant(\n    request: Request, restaurant_name: str = Form(...), street_address: str = Form(...), description: str = Form(...),\n    session: Session = Depends(get_db_session)\n):\n    logger.info(\"name: %s address: %s description: %s\"..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "create_db_and_tables函数是如何工作的？",
-      "answer": "create_db_and_tables函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\models.py",
-          "description": "function: create_db_and_tables",
-          "code_snippet": "def create_db_and_tables():\n    return SQLModel.metadata.create_all(engine)..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [],
-        "data_transformations": []
-      }
-    },
-    {
       "question": "add_review函数是如何工作的？",
       "answer": "add_review函数处理相关业务逻辑，接收特定参数并返回处理结果。",
       "level": "level_2",
@@ -581,20 +454,58 @@
       }
     },
     {
-      "question": "drop_all函数是如何工作的？",
-      "answer": "drop_all函数处理相关业务逻辑，接收特定参数并返回处理结果。",
+      "question": "get_db_session函数是如何工作的？",
+      "answer": "get_db_session函数处理相关业务逻辑，接收特定参数并返回处理结果。",
       "level": "level_2",
       "language": "zh",
       "code_references": [
         {
-          "file_path": "src\\fastapi_app\\seed_data.py",
-          "description": "function: drop_all",
-          "code_snippet": "def drop_all():\n    # Explicitly remove these tables first to avoid cascade errors\n    SQLModel.metadata.remove(Restaurant.__table__)\n    SQLModel.metadata.remove(Review.__table__)\n    SQLModel.metadata.drop_all(engine)..."
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "function: get_db_session",
+          "code_snippet": "def get_db_session():\n    with Session(engine) as session:\n        yield session..."
         }
       ],
       "data_processing_info": {
         "database_operations": [],
         "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "add_restaurant函数是如何工作的？",
+      "answer": "add_restaurant函数处理相关业务逻辑，接收特定参数并返回处理结果。",
+      "level": "level_2",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "function: add_restaurant",
+          "code_snippet": "@app.post(\"/add\", response_class=RedirectResponse)\nasync def add_restaurant(\n    request: Request, restaurant_name: str = Form(...), street_address: str = Form(...), description: str = Form(...),\n    session: Session = Depends(get_db_session)\n):\n    logger.info(\"name: %s address: %s description: %s\"..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "Restaurant数据模型的主要功能是什么？",
+      "answer": "Restaurant模型定义了数据结构，用于数据存储和验证。",
+      "level": "level_2",
+      "language": "zh",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\models.py",
+          "description": "model: Restaurant",
+          "code_snippet": "class Restaurant(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    name: str = Field(max_length=50)\n    street_address: str = Field(max_length=50)\n    description: str = Field(max_length=250)\n\n    def __str__(self):\n        return f\"{self.name}\"..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [
+          "数据验证"
+        ],
         "data_transformations": []
       }
     },
@@ -617,15 +528,15 @@
       }
     },
     {
-      "question": "__str__函数是如何工作的？",
-      "answer": "__str__函数处理相关业务逻辑，接收特定参数并返回处理结果。",
+      "question": "How does the create_db_and_tables function work?",
+      "answer": "The create_db_and_tables function handles related business logic, accepts specific parameters and returns processing results.",
       "level": "level_2",
-      "language": "zh",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\fastapi_app\\models.py",
-          "description": "function: __str__",
-          "code_snippet": "    def __str__(self):\n        return f\"{self.name}\"..."
+          "description": "function: create_db_and_tables",
+          "code_snippet": "def create_db_and_tables():\n    return SQLModel.metadata.create_all(engine)..."
         }
       ],
       "data_processing_info": {
@@ -635,35 +546,15 @@
       }
     },
     {
-      "question": "Review数据模型的主要功能是什么？",
-      "answer": "Review模型定义了数据结构，用于数据存储和验证。",
+      "question": "How does the details function work?",
+      "answer": "The details function handles related business logic, accepts specific parameters and returns processing results.",
       "level": "level_2",
-      "language": "zh",
-      "code_references": [
-        {
-          "file_path": "src\\fastapi_app\\models.py",
-          "description": "model: Review",
-          "code_snippet": "class Review(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    restaurant: int = Field(foreign_key=\"restaurant.id\")\n    user_name: str = Field(max_length=50)\n    rating: typing.Optional[int]\n    review_text: str = Field(max_length=500)\n    review_date: d..."
-        }
-      ],
-      "data_processing_info": {
-        "database_operations": [],
-        "validation_rules": [
-          "数据验证"
-        ],
-        "data_transformations": []
-      }
-    },
-    {
-      "question": "index函数是如何工作的？",
-      "answer": "index函数处理相关业务逻辑，接收特定参数并返回处理结果。",
-      "level": "level_2",
-      "language": "zh",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\fastapi_app\\app.py",
-          "description": "function: index",
-          "code_snippet": "@app.get(\"/\", response_class=HTMLResponse)\nasync def index(request: Request, session: Session = Depends(get_db_session)):\n    logger.info(\"root called\")\n    statement = (\n        select(Restaurant, func.avg(Review.rating).label(\"avg_rating\"), func.count(Review.id).label(\"review_count\"))\n        .out..."
+          "description": "function: details",
+          "code_snippet": "@app.get(\"/details/{id}\", response_class=HTMLResponse)\nasync def details(request: Request, id: int, session: Session = Depends(get_db_session)):\n    restaurant = session.exec(select(Restaurant).where(Restaurant.id == id)).first()\n    reviews = session.exec(select(Review).where(Review.restaurant == i..."
         }
       ],
       "data_processing_info": {
@@ -673,19 +564,91 @@
       }
     },
     {
-      "question": "create_restaurant端点的架构设计考虑是什么？",
-      "answer": "create_restaurant端点遵循RESTful设计原则，考虑了请求处理、数据验证和错误处理机制。",
-      "level": "level_3",
-      "language": "zh",
+      "question": "How does the create_restaurant function work?",
+      "answer": "The create_restaurant function handles related business logic, accepts specific parameters and returns processing results.",
+      "level": "level_2",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\fastapi_app\\app.py",
-          "description": "endpoint: create_restaurant",
+          "description": "function: create_restaurant",
           "code_snippet": "@app.get(\"/create\", response_class=HTMLResponse)\nasync def create_restaurant(request: Request):\n    logger.info(\"Request for add restaurant page received\")\n    return templates.TemplateResponse(\"create_restaurant.html\", {\"request\": request})..."
         }
       ],
       "data_processing_info": {
         "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "How does the add_review function work?",
+      "answer": "The add_review function handles related business logic, accepts specific parameters and returns processing results.",
+      "level": "level_2",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "function: add_review",
+          "code_snippet": "@app.post(\"/review/{id}\", response_class=RedirectResponse)\nasync def add_review(\n    request: Request,\n    id: int,\n    user_name: str = Form(...),\n    rating: str = Form(...),\n    review_text: str = Form(...),\n    session: Session = Depends(get_db_session),\n):\n    review = Review()\n    review.resta..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "How does the get_db_session function work?",
+      "answer": "The get_db_session function handles related business logic, accepts specific parameters and returns processing results.",
+      "level": "level_2",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "function: get_db_session",
+          "code_snippet": "def get_db_session():\n    with Session(engine) as session:\n        yield session..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "How does the add_restaurant function work?",
+      "answer": "The add_restaurant function handles related business logic, accepts specific parameters and returns processing results.",
+      "level": "level_2",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "function: add_restaurant",
+          "code_snippet": "@app.post(\"/add\", response_class=RedirectResponse)\nasync def add_restaurant(\n    request: Request, restaurant_name: str = Form(...), street_address: str = Form(...), description: str = Form(...),\n    session: Session = Depends(get_db_session)\n):\n    logger.info(\"name: %s address: %s description: %s\"..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What is the main function of the Restaurant data model?",
+      "answer": "The Restaurant model defines the data structure for data storage and validation.",
+      "level": "level_2",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\models.py",
+          "description": "model: Restaurant",
+          "code_snippet": "class Restaurant(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    name: str = Field(max_length=50)\n    street_address: str = Field(max_length=50)\n    description: str = Field(max_length=250)\n\n    def __str__(self):\n        return f\"{self.name}\"..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
         "validation_rules": [
           "数据验证"
         ],
@@ -693,15 +656,33 @@
       }
     },
     {
-      "question": "add_review端点的架构设计考虑是什么？",
-      "answer": "add_review端点遵循RESTful设计原则，考虑了请求处理、数据验证和错误处理机制。",
+      "question": "What is the main function of MyUvicornWorker?",
+      "answer": "MyUvicornWorker is responsible for handling class-related business logic.",
+      "level": "level_2",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\my_uvicorn_worker.py",
+          "description": "class: MyUvicornWorker",
+          "code_snippet": "class MyUvicornWorker(UvicornWorker):\n    CONFIG_KWARGS = {\n        \"loop\": \"asyncio\",\n        \"http\": \"auto\",\n        \"lifespan\": \"off\",\n        \"log_config\": logconfig_dict,\n    }..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "index端点的架构设计考虑是什么？",
+      "answer": "index端点遵循RESTful设计原则，考虑了请求处理、数据验证和错误处理机制。",
       "level": "level_3",
       "language": "zh",
       "code_references": [
         {
           "file_path": "src\\fastapi_app\\app.py",
-          "description": "endpoint: add_review",
-          "code_snippet": "@app.post(\"/review/{id}\", response_class=RedirectResponse)\nasync def add_review(\n    request: Request,\n    id: int,\n    user_name: str = Form(...),\n    rating: str = Form(...),\n    review_text: str = Form(...),\n    session: Session = Depends(get_db_session),\n):\n    review = Review()\n    review.resta..."
+          "description": "endpoint: index",
+          "code_snippet": "@app.get(\"/\", response_class=HTMLResponse)\nasync def index(request: Request, session: Session = Depends(get_db_session)):\n    logger.info(\"root called\")\n    statement = (\n        select(Restaurant, func.avg(Review.rating).label(\"avg_rating\"), func.count(Review.id).label(\"review_count\"))\n        .out..."
         }
       ],
       "data_processing_info": {
@@ -733,15 +714,35 @@
       }
     },
     {
-      "question": "index端点的架构设计考虑是什么？",
-      "answer": "index端点遵循RESTful设计原则，考虑了请求处理、数据验证和错误处理机制。",
+      "question": "What are the architectural design considerations for the index endpoint?",
+      "answer": "The index endpoint follows RESTful design principles, considering request handling, data validation, and error handling mechanisms.",
       "level": "level_3",
-      "language": "zh",
+      "language": "en",
       "code_references": [
         {
           "file_path": "src\\fastapi_app\\app.py",
           "description": "endpoint: index",
           "code_snippet": "@app.get(\"/\", response_class=HTMLResponse)\nasync def index(request: Request, session: Session = Depends(get_db_session)):\n    logger.info(\"root called\")\n    statement = (\n        select(Restaurant, func.avg(Review.rating).label(\"avg_rating\"), func.count(Review.id).label(\"review_count\"))\n        .out..."
+        }
+      ],
+      "data_processing_info": {
+        "database_operations": [],
+        "validation_rules": [
+          "数据验证"
+        ],
+        "data_transformations": []
+      }
+    },
+    {
+      "question": "What are the architectural design considerations for the details endpoint?",
+      "answer": "The details endpoint follows RESTful design principles, considering request handling, data validation, and error handling mechanisms.",
+      "level": "level_3",
+      "language": "en",
+      "code_references": [
+        {
+          "file_path": "src\\fastapi_app\\app.py",
+          "description": "endpoint: details",
+          "code_snippet": "@app.get(\"/details/{id}\", response_class=HTMLResponse)\nasync def details(request: Request, id: int, session: Session = Depends(get_db_session)):\n    restaurant = session.exec(select(Restaurant).where(Restaurant.id == id)).first()\n    reviews = session.exec(select(Review).where(Review.restaurant == i..."
         }
       ],
       "data_processing_info": {

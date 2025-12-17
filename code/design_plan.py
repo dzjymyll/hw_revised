@@ -487,6 +487,7 @@ Reasoning Trace:
 
         except Exception as e:
             self.logger.error(f"调用智谱AI API时出错: {e}")
+            self.has_llm = False
             return None
 
     def parse_design_response(self, response: str, language: str = "zh") -> Dict[str, str]:
