@@ -96,7 +96,7 @@ data/parsed_code.json
 
 ### 1.2 业务规则抽取
 
-根据代码生成业务规则：
+根据代码生成业务规则,在根目录执行：
 ```text
 python .\scripts\parsed_rule_extractor.py --input 'data/parsed_code.json' --output 'data/business_rule.json'
 ```
@@ -119,7 +119,7 @@ data/business_rule.json
 ./code/qa_generator.py
 ```
 
-示例命令：
+示例命令(在根目录执行代码解析：)：
 
 ```bash
 #（生成中文问答40个）
@@ -146,6 +146,24 @@ python code/qa_generator.py   --num 40   --rules data/business_rule.json   --out
 在有大语言模型辅助的情况下：
 - 支持中文或英文生成
 - 输出更完整的设计方案与推理 trace
+
+示例命令(在根目录执行代码解析：)：
+
+```bash
+#（生成中文设计方案10个）
+python code/design_plan.py --num 10 --rules 'data/business_rule.json' --output 'data/design_solution/enhanced_designs_zh.json' --lang 'zh'
+
+#（生成英文设计方案10个）
+python code/design_plan.py --num 10 --rules 'data/business_rule.json' --output 'data/design_solution/enhanced_designs_en.json' --lang en
+#（生成中英文设计方案10个）
+python code/design_plan.py --num 10 --rules 'data/business_rule.json' --output 'data/design_solution/enhanced_designs.json'
+
+
+```
+
+说明：
+-`--num` 控制生成数据数量
+- `--lang` 支持 `zh` / `en`，不指定语言时可生成中英文混合数据集（需大模型支持），没有大模型时只生成中文结果，储存在 data/qa_pairs/base_qa_pairs.json
 
 ---
 
