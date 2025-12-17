@@ -35,7 +35,7 @@ git clone https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app.
 在项目根目录执行：
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ---
