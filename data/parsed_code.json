@@ -1,0 +1,609 @@
+{
+  "repo_name": "test_repo",
+  "files": [
+    {
+      "file_path": ".markdownlint.json",
+      "file_name": ".markdownlint.json",
+      "file_type": "json",
+      "lines": 3
+    },
+    {
+      "file_path": "azure.yaml",
+      "file_name": "azure.yaml",
+      "file_type": "yaml",
+      "lines": 13
+    },
+    {
+      "file_path": "CODE_OF_CONDUCT.md",
+      "file_name": "CODE_OF_CONDUCT.md",
+      "file_type": "md",
+      "lines": 9
+    },
+    {
+      "file_path": "CONTRIBUTING.md",
+      "file_name": "CONTRIBUTING.md",
+      "file_type": "md",
+      "lines": 76
+    },
+    {
+      "file_path": "README.md",
+      "file_name": "README.md",
+      "file_type": "md",
+      "lines": 95
+    },
+    {
+      "file_path": "requirements-dev.txt",
+      "file_name": "requirements-dev.txt",
+      "file_type": "txt",
+      "lines": 2
+    },
+    {
+      "file_path": "requirements.txt",
+      "file_name": "requirements.txt",
+      "file_type": "txt",
+      "lines": 7
+    },
+    {
+      "file_path": "SECURITY.md",
+      "file_name": "SECURITY.md",
+      "file_type": "md",
+      "lines": 41
+    },
+    {
+      "file_path": ".devcontainer\\devcontainer.json",
+      "file_name": "devcontainer.json",
+      "file_type": "json",
+      "lines": 51
+    },
+    {
+      "file_path": ".devcontainer\\docker-compose.yml",
+      "file_name": "docker-compose.yml",
+      "file_type": "yml",
+      "lines": 37
+    },
+    {
+      "file_path": ".vscode\\launch.json",
+      "file_name": "launch.json",
+      "file_type": "json",
+      "lines": 20
+    },
+    {
+      "file_path": "infra\\main.parameters.json",
+      "file_name": "main.parameters.json",
+      "file_type": "json",
+      "lines": 18
+    },
+    {
+      "file_path": "infra\\README.md",
+      "file_name": "README.md",
+      "file_type": "md",
+      "lines": 3
+    },
+    {
+      "file_path": "src\\gunicorn.conf.py",
+      "file_name": "gunicorn.conf.py",
+      "file_type": "python",
+      "lines": 11,
+      "functions": [],
+      "classes": [],
+      "imports": [
+        "import multiprocessing"
+      ],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\my_uvicorn_worker.py",
+      "file_name": "my_uvicorn_worker.py",
+      "file_type": "python",
+      "lines": 50,
+      "functions": [],
+      "classes": [
+        {
+          "name": "MyUvicornWorker",
+          "bases": [
+            "UvicornWorker"
+          ],
+          "methods": [],
+          "line_start": 44,
+          "line_end": 50,
+          "code_snippet": "class MyUvicornWorker(UvicornWorker):\n    CONFIG_KWARGS = {\n        \"loop\": \"asyncio\",\n        \"http\": \"auto\",\n        \"lifespan\": \"off\",\n        \"log_config\": logconfig_dict,\n    }",
+          "docstring": null
+        }
+      ],
+      "imports": [
+        "from uvicorn_worker import UvicornWorker"
+      ],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\requirements.txt",
+      "file_name": "requirements.txt",
+      "file_type": "txt",
+      "lines": 1
+    },
+    {
+      "file_path": "src\\seed_data.json",
+      "file_name": "seed_data.json",
+      "file_type": "json",
+      "lines": 142
+    },
+    {
+      "file_path": "src\\__init__.py",
+      "file_name": "__init__.py",
+      "file_type": "python",
+      "lines": 0,
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\fastapi_app\\app.py",
+      "file_name": "app.py",
+      "file_type": "python",
+      "lines": 122,
+      "functions": [
+        {
+          "name": "get_db_session",
+          "args": [],
+          "decorators": [],
+          "is_async": false,
+          "line_start": 34,
+          "line_end": 36,
+          "code_snippet": "def get_db_session():\n    with Session(engine) as session:\n        yield session",
+          "docstring": null
+        },
+        {
+          "name": "index",
+          "args": [
+            "request",
+            "session"
+          ],
+          "decorators": [
+            "@app.get(\"/\", response_class=HTMLResponse)"
+          ],
+          "is_async": true,
+          "line_start": 40,
+          "line_end": 57,
+          "code_snippet": "@app.get(\"/\", response_class=HTMLResponse)\nasync def index(request: Request, session: Session = Depends(get_db_session)):\n    logger.info(\"root called\")\n    statement = (\n        select(Restaurant, func.avg(Review.rating).label(\"avg_rating\"), func.count(Review.id).label(\"review_count\"))\n        .outerjoin(Review, Review.restaurant == Restaurant.id)\n        .group_by(Restaurant.id)\n    )\n    results = session.exec(statement).all()\n\n    restaurants = []\n    for restaurant, avg_rating, review_count in results:\n        restaurant_dict = restaurant.dict()\n        restaurant_dict[\"avg_rating\"] = avg_rating\n        restaurant_dict[\"review_count\"] = review_count\n        restaurant_dict[\"stars_percent\"] = round((float(avg_rating) / 5.0) * 100) if review_count > 0 else 0\n        restaurants.append(restaurant_dict)\n\n    return templates.TemplateResponse(\"index.html\", {\"request\": request, \"restaurants\": restaurants})",
+          "docstring": null
+        },
+        {
+          "name": "create_restaurant",
+          "args": [
+            "request"
+          ],
+          "decorators": [
+            "@app.get(\"/create\", response_class=HTMLResponse)"
+          ],
+          "is_async": true,
+          "line_start": 61,
+          "line_end": 63,
+          "code_snippet": "@app.get(\"/create\", response_class=HTMLResponse)\nasync def create_restaurant(request: Request):\n    logger.info(\"Request for add restaurant page received\")\n    return templates.TemplateResponse(\"create_restaurant.html\", {\"request\": request})",
+          "docstring": null
+        },
+        {
+          "name": "add_restaurant",
+          "args": [
+            "request",
+            "restaurant_name",
+            "street_address",
+            "description",
+            "session"
+          ],
+          "decorators": [
+            "@app.post(\"/add\", response_class=RedirectResponse)"
+          ],
+          "is_async": true,
+          "line_start": 67,
+          "line_end": 80,
+          "code_snippet": "@app.post(\"/add\", response_class=RedirectResponse)\nasync def add_restaurant(\n    request: Request, restaurant_name: str = Form(...), street_address: str = Form(...), description: str = Form(...),\n    session: Session = Depends(get_db_session)\n):\n    logger.info(\"name: %s address: %s description: %s\", restaurant_name, street_address, description)\n    restaurant = Restaurant()\n    restaurant.name = restaurant_name\n    restaurant.street_address = street_address\n    restaurant.description = description\n    session.add(restaurant)\n    session.commit()\n    session.refresh(restaurant)\n\n    return RedirectResponse(url=app.url_path_for(\"details\", id=restaurant.id), status_code=status.HTTP_303_SEE_OTHER)",
+          "docstring": null
+        },
+        {
+          "name": "details",
+          "args": [
+            "request",
+            "id",
+            "session"
+          ],
+          "decorators": [
+            "@app.get(\"/details/{id}\", response_class=HTMLResponse)"
+          ],
+          "is_async": true,
+          "line_start": 84,
+          "line_end": 101,
+          "code_snippet": "@app.get(\"/details/{id}\", response_class=HTMLResponse)\nasync def details(request: Request, id: int, session: Session = Depends(get_db_session)):\n    restaurant = session.exec(select(Restaurant).where(Restaurant.id == id)).first()\n    reviews = session.exec(select(Review).where(Review.restaurant == id)).all()\n\n    review_count = len(reviews)\n\n    avg_rating = 0\n    if review_count > 0:\n        avg_rating = sum(review.rating for review in reviews if review.rating is not None) / review_count\n\n    restaurant_dict = restaurant.dict()\n    restaurant_dict[\"avg_rating\"] = avg_rating\n    restaurant_dict[\"review_count\"] = review_count\n    restaurant_dict[\"stars_percent\"] = round((float(avg_rating) / 5.0) * 100) if review_count > 0 else 0\n\n    return templates.TemplateResponse(\n        \"details.html\", {\"request\": request, \"restaurant\": restaurant_dict, \"reviews\": reviews}\n    )",
+          "docstring": null
+        },
+        {
+          "name": "add_review",
+          "args": [
+            "request",
+            "id",
+            "user_name",
+            "rating",
+            "review_text",
+            "session"
+          ],
+          "decorators": [
+            "@app.post(\"/review/{id}\", response_class=RedirectResponse)"
+          ],
+          "is_async": true,
+          "line_start": 105,
+          "line_end": 122,
+          "code_snippet": "@app.post(\"/review/{id}\", response_class=RedirectResponse)\nasync def add_review(\n    request: Request,\n    id: int,\n    user_name: str = Form(...),\n    rating: str = Form(...),\n    review_text: str = Form(...),\n    session: Session = Depends(get_db_session),\n):\n    review = Review()\n    review.restaurant = id\n    review.review_date = datetime.now()\n    review.user_name = user_name\n    review.rating = int(rating)\n    review.review_text = review_text\n    session.add(review)\n    session.commit()\n\n    return RedirectResponse(url=app.url_path_for(\"details\", id=id), status_code=status.HTTP_303_SEE_OTHER)",
+          "docstring": null
+        }
+      ],
+      "classes": [],
+      "imports": [
+        "from fastapi import FastAPI",
+        "from fastapi import Depends",
+        "from models import engine",
+        "from sqlmodel import select",
+        "import logging",
+        "from fastapi.responses import RedirectResponse",
+        "from azure.monitor.opentelemetry import configure_azure_monitor",
+        "from fastapi.templating import Jinja2Templates",
+        "from fastapi import Request",
+        "from fastapi import Form",
+        "from sqlalchemy.sql import func",
+        "from fastapi import status",
+        "import pathlib",
+        "from fastapi.staticfiles import StaticFiles",
+        "from models import Restaurant",
+        "from sqlmodel import Session",
+        "from datetime import datetime",
+        "import os",
+        "from fastapi.responses import HTMLResponse",
+        "from models import Review"
+      ],
+      "code_snippets": [
+        {
+          "line": 39,
+          "description": "API端点定义",
+          "code": "@app.get(\"/\", response_class=HTMLResponse)"
+        },
+        {
+          "line": 60,
+          "description": "API端点定义",
+          "code": "@app.get(\"/create\", response_class=HTMLResponse)"
+        },
+        {
+          "line": 66,
+          "description": "API端点定义",
+          "code": "@app.post(\"/add\", response_class=RedirectResponse)"
+        },
+        {
+          "line": 83,
+          "description": "API端点定义",
+          "code": "@app.get(\"/details/{id}\", response_class=HTMLResponse)"
+        },
+        {
+          "line": 104,
+          "description": "API端点定义",
+          "code": "@app.post(\"/review/{id}\", response_class=RedirectResponse)"
+        }
+      ]
+    },
+    {
+      "file_path": "src\\fastapi_app\\models.py",
+      "file_name": "models.py",
+      "file_type": "python",
+      "lines": 64,
+      "functions": [
+        {
+          "name": "create_db_and_tables",
+          "args": [],
+          "decorators": [],
+          "is_async": false,
+          "line_start": 43,
+          "line_end": 44,
+          "code_snippet": "def create_db_and_tables():\n    return SQLModel.metadata.create_all(engine)",
+          "docstring": null
+        },
+        {
+          "name": "__str__",
+          "args": [
+            "self"
+          ],
+          "decorators": [],
+          "is_async": false,
+          "line_start": 52,
+          "line_end": 53,
+          "code_snippet": "    def __str__(self):\n        return f\"{self.name}\"",
+          "docstring": null
+        },
+        {
+          "name": "__str__",
+          "args": [
+            "self"
+          ],
+          "decorators": [],
+          "is_async": false,
+          "line_start": 63,
+          "line_end": 64,
+          "code_snippet": "    def __str__(self):\n        return f\"{self.name}\"",
+          "docstring": null
+        }
+      ],
+      "classes": [
+        {
+          "name": "Restaurant",
+          "bases": [
+            "SQLModel"
+          ],
+          "methods": [
+            "__str__"
+          ],
+          "line_start": 46,
+          "line_end": 53,
+          "code_snippet": "class Restaurant(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    name: str = Field(max_length=50)\n    street_address: str = Field(max_length=50)\n    description: str = Field(max_length=250)\n\n    def __str__(self):\n        return f\"{self.name}\"",
+          "docstring": null
+        },
+        {
+          "name": "Review",
+          "bases": [
+            "SQLModel"
+          ],
+          "methods": [
+            "__str__"
+          ],
+          "line_start": 55,
+          "line_end": 64,
+          "code_snippet": "class Review(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    restaurant: int = Field(foreign_key=\"restaurant.id\")\n    user_name: str = Field(max_length=50)\n    rating: typing.Optional[int]\n    review_text: str = Field(max_length=500)\n    review_date: datetime\n\n    def __str__(self):\n        return f\"{self.name}\"",
+          "docstring": null
+        }
+      ],
+      "imports": [
+        "from sqlmodel import SQLModel",
+        "from sqlmodel import Field",
+        "import logging",
+        "from urllib.parse import quote_plus",
+        "from dotenv import load_dotenv",
+        "from datetime import datetime",
+        "import typing",
+        "import os",
+        "from sqlmodel import create_engine"
+      ],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\fastapi_app\\seed_data.py",
+      "file_name": "seed_data.py",
+      "file_type": "python",
+      "lines": 14,
+      "functions": [
+        {
+          "name": "drop_all",
+          "args": [],
+          "decorators": [],
+          "is_async": false,
+          "line_start": 6,
+          "line_end": 10,
+          "code_snippet": "def drop_all():\n    # Explicitly remove these tables first to avoid cascade errors\n    SQLModel.metadata.remove(Restaurant.__table__)\n    SQLModel.metadata.remove(Review.__table__)\n    SQLModel.metadata.drop_all(engine)",
+          "docstring": null
+        }
+      ],
+      "classes": [],
+      "imports": [
+        "from sqlmodel import SQLModel",
+        "from fastapi_app.models import create_db_and_tables",
+        "from fastapi_app.models import engine",
+        "from fastapi_app.models import Review",
+        "from fastapi_app.models import Restaurant"
+      ],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\fastapi_app\\__init__.py",
+      "file_name": "__init__.py",
+      "file_type": "python",
+      "lines": 1,
+      "functions": [],
+      "classes": [],
+      "imports": [
+        "from app import app"
+      ],
+      "code_snippets": []
+    },
+    {
+      "file_path": "src\\static\\manifest.json",
+      "file_name": "manifest.json",
+      "file_type": "json",
+      "lines": 30
+    },
+    {
+      "file_path": "src\\templates\\base.html",
+      "file_name": "base.html",
+      "file_type": "html",
+      "lines": 42,
+      "template_variables": [
+        "{{ url_for('static', path='images/azure-icon.svg') }}",
+        "{{ url_for('static', path='favicon.ico') }}"
+      ],
+      "template_tags": [
+        "{% block content %}",
+        "{% block head %}",
+        "{% endblock %}",
+        "{% block title %}"
+      ],
+      "text_preview": "FastAPI web app with PostgreSQL in Azure - Azure Restaurant Review Azure Docs Azure Docs Home Python Web App + Database Tutorial Python on Azure Python on Azure Developer Center"
+    },
+    {
+      "file_path": "src\\templates\\create_restaurant.html",
+      "file_name": "create_restaurant.html",
+      "file_type": "html",
+      "lines": 39,
+      "template_variables": [
+        "{{ super() }}",
+        "{{ url_for('add_restaurant') }}",
+        "{{ url_for('index') }}"
+      ],
+      "template_tags": [
+        "{% block title %}",
+        "{% block head %}",
+        "{% block content %}",
+        "{% extends \"base.html\" %}",
+        "{% endblock %}"
+      ],
+      "text_preview": "Restaurant Create body { min-height: 75rem; padding-top: 4.5rem; } Add New Restaurant Name Street Address Description Submit Cancel document.getElementById('cancelButton').addEventListener('click', fu"
+    },
+    {
+      "file_path": "src\\templates\\details.html",
+      "file_name": "details.html",
+      "file_type": "html",
+      "lines": 115,
+      "template_variables": [
+        "{{ super() }}",
+        "{{ review.user_name }}",
+        "{{ restaurant.street_address }}",
+        "{{ review.review_text }}",
+        "{{ review.review_date }}",
+        "{{ restaurant.review_count }}",
+        "{{ restaurant.description }}",
+        "{{ restaurant.avg_rating|round(3) }}",
+        "{{ restaurant.name }}",
+        "{{ url_for('add_review', id=restaurant.id) }}",
+        "{{ review.rating }}"
+      ],
+      "template_tags": [
+        "{% endfor %}",
+        "{% else %}",
+        "{% block title %}",
+        "{% if restaurant.review_count == 1 %}",
+        "{% if restaurant.review_count %}",
+        "{% for review in reviews %}",
+        "{% block head %}",
+        "{% endif %}",
+        "{% block content %}",
+        "{% extends \"base.html\" %}",
+        "{% endblock %}",
+        "{% if reviews %}"
+      ],
+      "text_preview": "Restaurant Details body { min-height: 75rem; padding-top: 4.5rem; } Street address: Description: Rating: ( review reviews) No ratings yet Reviews Add new review Date User Rating Review No reviews of t"
+    },
+    {
+      "file_path": "src\\templates\\index.html",
+      "file_name": "index.html",
+      "file_type": "html",
+      "lines": 74,
+      "template_variables": [
+        "{{ super() }}",
+        "{{ restaurant.name }}",
+        "{{ url_for('create_restaurant') }}",
+        "{{ url_for('details', id=restaurant.id) }}"
+      ],
+      "template_tags": [
+        "{% endfor %}",
+        "{% else %}",
+        "{% for restaurant in restaurants %}",
+        "{% block title %}",
+        "{% block head %}",
+        "{% if True %}",
+        "{% endif %}",
+        "{% block content %}",
+        "{% extends \"base.html\" %}",
+        "{% include \"star_rating.html\" %}",
+        "{% endblock %}"
+      ],
+      "text_preview": "Restaurant List body { min-height: 75rem; padding-top: 4.5rem; } .score { display: block; font-size: 16px; position: relative; overflow: hidden; } .score-wrap { display: inline-block; position: relati"
+    },
+    {
+      "file_path": "src\\templates\\star_rating.html",
+      "file_name": "star_rating.html",
+      "file_type": "html",
+      "lines": 25,
+      "template_variables": [
+        "{{ restaurant.avg_rating|float }}",
+        "{{ restaurant.review_count }}",
+        "{{ restaurant.stars_percent }}"
+      ],
+      "template_tags": [
+        "{% if restaurant.review_count == 1 %}",
+        "{% if restaurant.review_count %}",
+        "{% else %}",
+        "{% endif %}"
+      ],
+      "text_preview": "( review reviews) No ratings yet"
+    }
+  ],
+  "api_endpoints": [
+    {
+      "name": "index",
+      "method": "GET",
+      "route": "/",
+      "file": "src\\fastapi_app\\app.py",
+      "function_name": "index",
+      "is_async": true
+    },
+    {
+      "name": "create_restaurant",
+      "method": "GET",
+      "route": "/create",
+      "file": "src\\fastapi_app\\app.py",
+      "function_name": "create_restaurant",
+      "is_async": true
+    },
+    {
+      "name": "add_restaurant",
+      "method": "POST",
+      "route": "/add",
+      "file": "src\\fastapi_app\\app.py",
+      "function_name": "add_restaurant",
+      "is_async": true
+    },
+    {
+      "name": "details",
+      "method": "GET",
+      "route": "/details/{id}",
+      "file": "src\\fastapi_app\\app.py",
+      "function_name": "details",
+      "is_async": true
+    },
+    {
+      "name": "add_review",
+      "method": "POST",
+      "route": "/review/{id}",
+      "file": "src\\fastapi_app\\app.py",
+      "function_name": "add_review",
+      "is_async": true
+    }
+  ],
+  "key_functions": [
+    {
+      "name": "get_db_session",
+      "file": "src\\fastapi_app\\app.py",
+      "code_snippet": "def get_db_session():\n    with Session(engine) as session:\n        yield session"
+    },
+    {
+      "name": "create_db_and_tables",
+      "file": "src\\fastapi_app\\models.py",
+      "code_snippet": "def create_db_and_tables():\n    return SQLModel.metadata.create_all(engine)"
+    },
+    {
+      "name": "drop_all",
+      "file": "src\\fastapi_app\\seed_data.py",
+      "code_snippet": "def drop_all():\n    # Explicitly remove these tables first to avoid cascade errors\n    SQLModel.metadata.remove(Restaurant.__table__)\n    SQLModel.metadata.remove(Review.__table__)\n    SQLModel.metadata.drop_all(engine)"
+    }
+  ],
+  "key_classes": [
+    {
+      "name": "MyUvicornWorker",
+      "file": "src\\my_uvicorn_worker.py",
+      "code_snippet": "class MyUvicornWorker(UvicornWorker):\n    CONFIG_KWARGS = {\n        \"loop\": \"asyncio\",\n        \"http\": \"auto\",\n        \"lifespan\": \"off\",\n        \"log_config\": logconfig_dict,\n    }"
+    },
+    {
+      "name": "Restaurant",
+      "file": "src\\fastapi_app\\models.py",
+      "code_snippet": "class Restaurant(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    name: str = Field(max_length=50)\n    street_address: str = Field(max_length=50)\n    description: str = Field(max_length=250)\n\n    def __str__(self):\n        return f\"{self.name}\""
+    },
+    {
+      "name": "Review",
+      "file": "src\\fastapi_app\\models.py",
+      "code_snippet": "class Review(SQLModel, table=True):\n    id: typing.Optional[int] = Field(default=None, primary_key=True)\n    restaurant: int = Field(foreign_key=\"restaurant.id\")\n    user_name: str = Field(max_length=50)\n    rating: typing.Optional[int]\n    review_text: str = Field(max_length=500)\n    review_date: datetime\n\n    def __str__(self):\n        return f\"{self.name}\""
+    }
+  ],
+  "code_snippets": []
+}
